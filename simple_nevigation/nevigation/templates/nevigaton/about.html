@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> <a href="/"> Home</a></h1>
+    <h1><a href="/nevigation/about/"> first app / About</a></h1>
+    <h1><a href="/nevigation/contact/"> first app / contact</a></h1>
+    <h1>this is about page</h1>
+    <h1> name: {{name}}</h1>
+    <h1> age: {{age}}</h1>
+
+    {% comment %}  if else function {% endcomment %}
+    {% if age >= 20 %}
+    <h2>You will get a license</h2>
+{% elif age > 12 and age <= 19 %}
+    <h2>You won't get a license</h2>
+{% else %}
+    <h2>You are a child</h2>
+{% endif %}
+
+     
+    
+
+
+</body>
+</html>
