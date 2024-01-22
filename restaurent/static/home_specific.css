@@ -1,0 +1,56 @@
+body {
+    background-color: rgb(230, 238, 238);
+}
+
+.card-bos {
+    text-align: center;
+    margin: 20px;
+}
+
+.main-part {
+    display: flex;
+    text-align: center;
+    gap: 50px;
+}
+
+#main-text {
+    display: flex;
+    text-align: center;
+    gap: 50px;
+}
+
+.text-side {
+    margin-top: 150px;
+    width: 800px;
+}
+
+.font-img {
+    width: 450px;
+    box-shadow: 5px;
+}
+
+.about-img {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.title-text {
+    color: rgb(19, 180, 183);
+}
+
+.img-side {
+    margin-top: 20px;
+}
+
+.card-box {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.title {
+    color: #f90505;
+    font: bold;
+}

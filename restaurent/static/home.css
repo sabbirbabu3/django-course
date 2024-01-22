@@ -1,0 +1,7 @@
+body{
+    background-color: aqua;
+}
+.main-part{
+    display: flex;
+    text-align: center;
+}
