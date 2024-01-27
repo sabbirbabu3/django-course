@@ -1,0 +1,34 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<div style="width:900px; margin:auto;">
+    {% if data %}
+    <h1>This is Table page</h1>
+
+<table  class="table">
+    <thead>
+      <tr>
+        <th scope="col">Roll</th>
+        <th scope="col">name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {%for i in data%}
+      <tr>
+        <th scope="row">{{i.roll}}</th>
+        <td>{{i.name}}</td>
+        <td>{{i.address}}</td>
+        <td  ><a class="btn btn-danger text-white" href="{% url  'delete_studetTables' i.roll %}" >Delete</a> </td>
+        
+      </tr>
+      {%endfor%}
+      
+    </tbody>
+  </table>
+    {%endif%}
+</div>
+
+{%endblock%}
