@@ -1,0 +1,47 @@
+{% extends "base.html" %} {%block content%}
+<h1>this is home page</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Musician First name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Instrument type</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Relase Date</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  {%for post in form%}
+  <tbody class="table-group-divider">
+    <tr>
+      <th scope="row">1</th>
+
+     
+
+      
+      <td><a href="{% url 'upgrade' post.id %}">{{ post.album_name.first_name }}</a></td>
+
+      <td>{{post.album_name.last_name}}</td>
+      <td>{{post.album_name.emal}}</td>
+      <td>{{post.album_name.phone_number}}</td>
+      <td>{{post.album_name.instrument_type}}</td>
+      
+    
+      <td>{{ post.album_release_date }}</td>
+      <td>{{ post.rating }}</td>
+
+      <td>
+        <a class="btn btn-warning" href="{% url 'update' post.id %}">Update</a>
+        <a class="btn btn-danger" href="{% url 'delete' post.id %}">Delete</a>
+
+      </td>
+
+      {% endfor %}
+    </tr>
+  </tbody>
+</table>
+
+{% endblock%}
