@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content%}
+
+
+    <div  class="row">
+        {%for post in data%}
+        <div style="margin:center" class="col-sm-4 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{post.task_title}}</h5>
+              <h5 class="card-title">{{post.task_asgin_date}}</h5>
+              <p class="card-text">{{post.task_discription}}</p>
+              <p>Category: {% for cat in post.category.all %}
+                <a class="btn btn-warning disabled">  {{ cat.category_name }}</a>
+                   {% endfor %}</p>
+              </p>
+              {% if not post.is_complete %}
+              <a href="{% url 'update' post.id %}" class="btn btn-primary">Update</a>
+              <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete</a>
+               {% else %}
+               <a class="btn btn-primary disabled">complete</a>
+            {% endif %}
+              
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+
+{%endblock%}
