@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{%block content%}
+{% if messages %}
+    {% for m in messages %}
+        <small style="color: green">{{ m }}</small>
+    {% endfor %}
+{% endif %}
+<h1>This is a Profile page</h1>
+<a href="{% url 'changePassword' %}">Change Password with old password</a>
+</br>
+<a href="{% url 'changePassword2' %}">Change Password widthout old password</a>
+
+{%endblock%}

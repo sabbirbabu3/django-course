@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{%load crispy_forms_tags %}
+{% block content %}
+{% if messages %}
+    {% for m in messages %}
+        <small style="color: green">{{ m }}</small>
+    {% endfor %}
+{% endif %}
+<form style="width:500px; margin:auto" method='post'>
+    {% csrf_token %}
+    {% if type == 'register' %}
+        {{ form | crispy }}
+        <button type="submit" class="btn btn-primary">Save</button>
+    {% elif type == 'login' %}
+        {{ form | crispy }}
+        <button type="submit" class="btn btn-primary">Login</button>
+        {% elif type == 'changePassword' %}
+        {{ form | crispy }}
+        <button type="submit" class="btn btn-primary">ChangePassword</button>
+    {% endif %}
+</form>
+{% endblock %}
