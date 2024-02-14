@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> this is Profile page</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Album Rating</th>
+            <th scope="col">Instrument Type</th>
+            <th scope="col">Album Name</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {% for post in data %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ post.musican.first_name }}</td>
+            <td>{{ post.musican.last_name }}</td>
+            <td>{{ post.musican.email }}</td>
+            <td>{{ post.musican.phone_number }}</td>
+            <td>{{ post.rating }}</td>
+            <td>{{ post.musican.instrument_type }}</td>
+            <td>{{ post.album_name }}</td>
+            <td>{{ post.album_release_date }}</td>
+            <td>
+                <div class="d-flex">
+                    <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'update' post.id %}" class="btn btn-primary">Update</a>
+
+                </div>
+            </td>
+            
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock%}
