@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+<a href="{% url 'buy_now' carmodel.id %}" class="btn btn-primary">Buy Now</a>
+{% block content %}
+{% load static %}
+<div class="d-flex m-20">
+    <div class="col-6">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'download.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'download1.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'download2.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="col-6 bg-info justify-content-center align-items-center">
+        <div class="text-center p-2" style="margin-top: 150px;">
+            <h1 style="color:white; font-weight: bold;">AWARD-WINNING RESPONSIVE</h1>
+            <h1 style="color:yellow; font-weight: bold;"> GUARANTEED RESULTS</h1>
+            <p style="color:white;">Put the power of the highest-converting, fastest-performing website platform in retail automotive to work for you. Get guaranteed results when you switch to DealerOn.</p>
+        </div>
+    </div>
+</div>
+
+<div style="width:500px; margin:auto" class="p-5"> 
+    
+    <h1>All of the brand</h1>
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+        {% for br in brand_name %}
+        <input type="checkbox" class="btn-check" id="{{br.id}}" autocomplete="off">
+        <label class="btn btn-outline-primary" for="{{br.id}}">
+            <a class="text-decoration-none" href="{% url 'model_wise_post' br.slug %}">{{br.brand}}</a>
+        </label>
+        {% endfor %}
+    </div>
+    
+</div>
+
+
+
+
+
+
+
+<h1>Total car is: {{data | length}}</h1>
+<div class="d-flex flex-wrap">
+    
+    {% for post in data%}
+    <div class="card" style="width: 18rem;">
+        <img src="{{post.image.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Car_Name: {{post.car_name}}</h5>
+          <p class="card-text">Car_Price: {{post.car_price}}$</p>
+          <p class="card-text">Brand_Name: {{post.brand.brand}}</p>
+          <a href="{% url 'details' post.id %}" class="btn btn-primary">details</a>
+          <p class="card-text details-text" style="display: none;">
+            Cars are a significant investment, so buyers want to make sure they take their time to buy the right one for them. Dealerships need to focus on relationship-building to earn buyers’ trust to close sales quicker. They also need to take a more consultative approach to handle customers since buyers have more information today than ever and want to go with someone more knowledgeable about the car and industry.
+        </p>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+{% endblock %}
